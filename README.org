@@ -46,7 +46,11 @@ After loading simply run the command ~markdown-preview~ from within Nyxt
 (accessed via the control+space)
 
 *** Todo List 
-- [ ] limit prompt results to either directories or markdown files
+- [ ] Create a custom mode
+- [ ] Allow for user defined CSS
+- [ ] Remove dependency on =file-notify=
+- [ ] Make 3bmd optional for users who are fine with Spinneret
+- [ ] Limit prompt results to either directories or markdown files
 - [ ] Stop watching when buffer is killed
 - [ ] Don't reset window hight on reload
 - [ ] Tie the watcher thread to a new mode
