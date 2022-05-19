@@ -1,7 +1,4 @@
 ;;;; nx-md-preview.lisp
-;; TODO limit prompt results to either directories or markdown files
-;; TODO Stop watching when buffer is killed
-;; TODO Don't reset window hight on reload
 
 (in-package #:nx-md-preview)
 ;;; Markdown Preview
@@ -9,8 +6,9 @@
 (setf 3bmd-tables:*tables* t)
 (setf 3bmd:*smart-quotes* t)
 
-
-(defvar *mdpath* nil)
+(defvar *mdpath* nil
+  "Stores the current file name for the watcher thread to pay attention
+to")
 
 (defun %md-buffer ()
   "Find the markdown review buffer and return it"
@@ -41,7 +39,8 @@ prompts the user to set it"
                                 'file-source)))))
 
     ;; File watching
-    (bt:make-thread #'%watch-file))
+    (bt:make-thread (lambda () (%watch-file *mdpath*))
+                    :name "md-file-watcher"))
   *mdpath*)
 
 
