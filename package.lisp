@@ -5,7 +5,10 @@
   (:import-from #:nyxt
                 #:title
                 #:buffer-list
-                #:reload-buffers)
+                #:reload-buffers
+                #:define-internal-page-command-global
+                #:base-mode
+                #:prompt)
   (:import-from #:nyxt/file-manager-mode
                 #:file-source)
   (:import-from #:alexandria
